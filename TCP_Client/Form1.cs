@@ -89,30 +89,30 @@ namespace TCP_Client
                     button1.Enabled = true;
                     TH.Abort();
                 }
-            }
-            Msg = Encoding.Default.GetString(B, 0, inLen);
-            St = Msg.Substring(0, 1);
-            Str = Msg.Substring(1);
-            switch (St)
-            {
-                case "L":
-                    listBox1.Items.Clear();
-                    string[] M = Str.Split(',');
-                    foreach(string user in M)
-                    {
-                        listBox1.Items.Add(user);
-                    }
-                    break;
-                case "1": //接收到廣播訊息
-                    textBox4.Text += "(公開)" + Str + "\r\n";
-                    textBox4.SelectionStart = textBox4.Text.Length;
-                    textBox4.ScrollToCaret();
-                    break;
-                case "2": //接收到私密訊息
-                    textBox4.Text += "(私密)" + Str + "\r\n";
-                    textBox4.SelectionStart = textBox4.Text.Length;
-                    textBox4.ScrollToCaret();
-                    break;
+                Msg = Encoding.Default.GetString(B, 0, inLen);
+                St = Msg.Substring(0, 1);
+                Str = Msg.Substring(1);
+                switch (St)
+                {
+                    case "L":
+                        listBox1.Items.Clear();
+                        string[] M = Str.Split(',');
+                        foreach (string user in M)
+                        {
+                            listBox1.Items.Add(user);
+                        }
+                        break;
+                    case "1": //接收到廣播訊息
+                        textBox4.Text += "(公開)" + Str + "\r\n";
+                        textBox4.SelectionStart = textBox4.Text.Length;
+                        textBox4.ScrollToCaret();
+                        break;
+                    case "2": //接收到私密訊息
+                        textBox4.Text += "(私密)" + Str + "\r\n";
+                        textBox4.SelectionStart = textBox4.Text.Length;
+                        textBox4.ScrollToCaret();
+                        break;
+                }
             }
         }
 
@@ -121,7 +121,7 @@ namespace TCP_Client
             if (textBox_Send.Text == "") return;
             if (listBox1.SelectedIndex < 0) //廣播
             {
-                Send("1" + User + "公告" + textBox_Send);
+                Send("1" + User + "公告" + textBox_Send.Text);
             }
             else
             {
