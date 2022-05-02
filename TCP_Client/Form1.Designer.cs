@@ -142,6 +142,7 @@ namespace TCP_Client
             // 
             // button_send
             // 
+            this.button_send.Enabled = false;
             this.button_send.Font = new System.Drawing.Font("新細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button_send.Location = new System.Drawing.Point(545, 386);
             this.button_send.Name = "button_send";
@@ -149,6 +150,7 @@ namespace TCP_Client
             this.button_send.TabIndex = 12;
             this.button_send.Text = "送出";
             this.button_send.UseVisualStyleBackColor = true;
+            this.button_send.Click += new System.EventHandler(this.button_send_Click);
             // 
             // button_snndAll
             // 
@@ -159,6 +161,7 @@ namespace TCP_Client
             this.button_snndAll.TabIndex = 13;
             this.button_snndAll.Text = "廣播";
             this.button_snndAll.UseVisualStyleBackColor = true;
+            this.button_snndAll.Click += new System.EventHandler(this.button_snndAll_Click);
             // 
             // Form2
             // 
