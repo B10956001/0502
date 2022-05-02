@@ -87,5 +87,24 @@ namespace WindowsFormsApp1
         {
             Application.ExitThread(); //關閉所有執行緒 
         }
+        private string OnlineList()
+        {
+            string L = "L";
+            for(int i = 0; i < listBox1.Items.Count; i++)
+            {
+                L += listBox1.Items[i];
+                if (i < listBox1.Items.Count - 1)
+                {
+                    L += ",";
+                }
+            }
+            return L;
+        }
+        private void SendTo(string Str,string user)
+        {
+            byte[] B = Encoding.Default.GetBytes(Str);
+            Socket Sck = (Socket)HT[user];
+            Sck.Send(B, 0, B.Length, SocketFlags.None);
+        }
     }
 }
