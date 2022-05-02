@@ -78,6 +78,13 @@ namespace WindowsFormsApp1
                             SendAll(OnlineList()); //傳送線上名單給所有客戶
                             Th.Abort();                 //結束此客戶的監聽執行緒
                             break;
+                        case "1":
+                            SendAll(Msg);
+                            break;
+                        default: //傳送私密訊息
+                            string[] C = Str.Split('|'); //切開訊息與收件者
+                            SendTo(Cmd + C[0],C[1]);
+                            break;
                     }
                 }
                 catch (Exception)
